@@ -1,14 +1,115 @@
 /* CSS Variables for Theme Management */
 :root {
-  /* Light theme colors */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --text-primary: #282c34;
-  --text-secondary: #61dafb;
-  --border-color: #e9ecef;
-  --button-bg: #007bff;
-  --button-text: #ffffff;
+  /* Sunset Dragon Flight Colors */
+  --color-primary: #FF6E40;
+  --color-secondary: #8E24AA;
+  --color-accent: #FFD740;
+  --color-sunset-gradient: linear-gradient(135deg, #FF6E40 0%, #FFD740 70%, #8E24AA 100%);
+  --color-text: #fff;
+  --color-ui-shadow: 0 2px 24px #8E24AA80, 0 0px 110px #FF6E4070;
+  --color-btn-glow: 0 0 24px #FFD74080;
+  --color-btn-bg: #FF6E40;
+  --color-btn-hover: #FFD740;
+  --color-btn-leaderboard: #8E24AA;
+  --color-btn-leaderboard-hover: #FF6E40;
 }
+
+/* Reset and sunset gradient */
+body, html, #root {
+  min-height: 100vh;
+  min-width: 100vw !important;
+  margin: 0;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  background: var(--color-sunset-gradient);
+  overflow: hidden;
+}
+
+/* Buttons */
+button, .btn {
+  background: var(--color-btn-bg);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 1em 3em;
+  border: none;
+  border-radius: 2rem;
+  margin: 0.6em 0;
+  cursor: pointer;
+  box-shadow: var(--color-btn-glow), 0 2px 12px #4442;
+  transition: background 0.2s, box-shadow 0.33s, color 0.17s;
+  letter-spacing: 1.5px;
+  text-shadow: 0 1px 9px #4b244aaa;
+}
+button:active {
+  transform: scale(0.97);
+  opacity: 0.93;
+}
+button.btn-large {
+  font-size: 2.3rem;
+}
+button.leaderboard {
+  background: var(--color-btn-leaderboard);
+  color: #fff;
+}
+button.leaderboard:hover {
+  background: var(--color-btn-leaderboard-hover);
+  color: var(--color-accent);
+}
+
+/* Apply glowing effect to buttons */
+.btn-glow {
+  box-shadow: 0 0 16px 4px var(--color-accent), 0 2px 18px #4b244a90;
+  animation: btn-glo 1.5s alternate infinite;
+}
+@keyframes btn-glo {
+  to { box-shadow: 0 0 36px 10px var(--color-secondary), 0 2px 34px #FFD74090;}
+}
+
+/* Scorebar styling */
+.scorebar {
+  position: fixed;
+  top: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: var(--color-accent);
+  background: rgba(39,25,77,0.14);
+  padding: 1.1rem 2.6rem;
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 18px 2px #FFD74069;
+  z-index: 10;
+  text-shadow: 0 1px 20px var(--color-accent), 0 2px 8px #8E24AA80;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Sunset homepage stylish header */
+h1 {
+  color: var(--color-text);
+  font-size: 3.3rem;
+  font-weight: 900;
+  text-shadow: 0 4px 50px #FFD74090, 0 3px 8px #8E24AA90;
+  letter-spacing: .03em;
+}
+
+/* Smaller text for instructions */
+.instructions {
+  font-size: 1.131rem;
+  color: #FFF9;
+  text-shadow: 0 2px 10px #40218bbb;
+  margin-bottom: 2.5rem;
+  margin-top: 0.5rem;
+}
+
+/* Responsive: phones */
+@media (max-width: 650px) {
+  h1 { font-size: 2.2rem; }
+  .scorebar { font-size: 1.3rem; padding: 0.5rem 1.3rem; }
+  button, .btn { font-size: 1rem; }
+}
+
 
 [data-theme="dark"] {
   /* Dark theme colors */
